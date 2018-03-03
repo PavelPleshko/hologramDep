@@ -1,6 +1,6 @@
 const ENV = process.env.NODE_ENV || 'development';
 const DEFAULT_PORT =  8080;
-const DEFAULT_HOSTNAME = '127.0.0.1';
+const DEFAULT_HOSTNAME = '0.0.0.0';
 const cors = require('cors');
 const http = require('http');
 const express = require('express');
