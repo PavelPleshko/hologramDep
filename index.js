@@ -1,5 +1,5 @@
 const ENV = process.env.NODE_ENV || 'development';
-const DEFAULT_PORT = process.env.PORT || 8080;
+const DEFAULT_PORT =  8080;
 const DEFAULT_HOSTNAME = '127.0.0.1';
 const cors = require('cors');
 const http = require('http');
@@ -33,7 +33,7 @@ app.use((err, req, res, next) => {
 if (!module.parent) {
   server = http.createServer(app);
   server.listen(
-    config.port || DEFAULT_PORT,
+   DEFAULT_PORT,
     config.hostname || DEFAULT_HOSTNAME,
     () => {
       console.log(`${config.app.name} is running`);
