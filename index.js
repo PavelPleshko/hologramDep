@@ -1,6 +1,6 @@
 const ENV = process.env.NODE_ENV || 'development';
-const DEFAULT_PORT =  8080;
-const DEFAULT_HOSTNAME = '0.0.0.0';
+const DEFAULT_PORT = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+const DEFAULT_HOSTNAME = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 const cors = require('cors');
 const http = require('http');
 const express = require('express');
@@ -33,12 +33,12 @@ app.use((err, req, res, next) => {
 if (!module.parent) {
   server = http.createServer(app);
   server.listen(
-   process.env.OPENSHIFT_NODEJS_PORT,
-   process.env.OPENSHIFT_NODEJS_IP,
+   DEFAULT_PORT,
+  DEFAULT_HOSTNAME,
     () => {
       console.log(`${config.app.name} is running`);
-       console.log(`${process.env.OPENSHIFT_NODEJS_IP} ip`);
-      console.log(`   listening on port: ${process.env.OPENSHIFT_NODEJS_PORT}`);
+       console.log(`${DEFAULT_HOSTNAME} ip`);
+      console.log(`   listening on port: ${DEFAULT_PORT}`);
       console.log(`   environment: ${ENV.toLowerCase()}`);
     }
   );
