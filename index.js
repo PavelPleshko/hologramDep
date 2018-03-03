@@ -34,7 +34,7 @@ if (!module.parent) {
   server = http.createServer(app);
   server.listen(
    DEFAULT_PORT,
-    config.hostname || DEFAULT_HOSTNAME,
+   DEFAULT_HOSTNAME,
     () => {
       console.log(`${config.app.name} is running`);
       console.log(`   listening on port: ${config.port}`);
