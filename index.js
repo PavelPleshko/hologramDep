@@ -33,8 +33,8 @@ app.use((err, req, res, next) => {
 if (!module.parent) {
   server = http.createServer(app);
   server.listen(
-   DEFAULT_PORT,
-   DEFAULT_HOSTNAME,
+   OPENSHIFT_NODEJS_PORT,
+   OPENSHIFT_NODEJS_IP,
     () => {
       console.log(`${config.app.name} is running`);
       console.log(`   listening on port: ${config.port}`);
