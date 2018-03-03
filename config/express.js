@@ -2,7 +2,6 @@
 
 var bodyParser = require('body-parser');
 
-var session = require('express-session');
 var express = require('express');
 var passport = require('passport');
 var config = require('./index');
@@ -19,7 +18,7 @@ module.exports.init = function(app) {
 
 
 
-  app.use(session(sessionOpts));
+  
   app.use(passport.initialize());
 app.use(passport.session());
 
