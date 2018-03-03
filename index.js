@@ -37,7 +37,8 @@ if (!module.parent) {
    process.env.OPENSHIFT_NODEJS_IP,
     () => {
       console.log(`${config.app.name} is running`);
-      console.log(`   listening on port: ${config.port}`);
+       console.log(`${process.env.OPENSHIFT_NODEJS_IP} ip`);
+      console.log(`   listening on port: ${process.env.OPENSHIFT_NODEJS_PORT}`);
       console.log(`   environment: ${ENV.toLowerCase()}`);
     }
   );
