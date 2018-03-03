@@ -51,7 +51,7 @@ UserSchema.methods.changePassword = changeUserPassword;
 
 
 function registerUser(opts, callback) {
-  let data = _.cloneDeep(opts); //clones the object
+  var data = _.cloneDeep(opts); //clones the object
 
   //hash the password
   passwordHelper.hash(opts.password, (err, hashedPassword, salt) => {
@@ -145,7 +145,7 @@ function changeUserPassword(oldPassword, newPassword, callback) {
 
         // if password does not match don't return user
         if (result === false) {
-          let PassNoMatchError = new Error('Old password does not match.');
+          var PassNoMatchError = new Error('Old password does not match.');
           PassNoMatchError.type = 'old_password_does_not_match';
           return callback(PassNoMatchError, null);
         }
